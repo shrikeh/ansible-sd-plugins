@@ -1,0 +1,6 @@
+---
+- name: Restart sd-agent
+  service:
+    name: "{{ sd_plugin_sd_agent_service_name }}"
+    state: restarted
+...

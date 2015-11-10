@@ -24,6 +24,7 @@
     update: "{{ sd_plugin_sd_plugins_repo_update }}"
     depth: "{{ sd_plugin_sd_plugins_repo_depth }}"
     clone: yes
+  when: sd_plugin_use_sd_repo
 
 - name: Ensure the plugin directory is in the config
   lineinfile:
