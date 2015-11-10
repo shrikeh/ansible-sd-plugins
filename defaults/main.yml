@@ -1,0 +1,21 @@
+---
+sd_plugin_sd_core_dir_path: /usr/bin/sd-agent
+sd_plugin_sd_core_dir_mode: '0750'
+sd_plugin_sd_core_dir_owner: root
+sd_plugin_sd_core_dir_group: root
+
+sd_plugin_sd_plugins_dir_path: "{{ sd_plugin_sd_core_dir_path }}/plugins"
+sd_plugin_sd_plugins_dir_mode: '0750'
+sd_plugin_sd_plugins_dir_owner: root
+sd_plugin_sd_plugins_dir_group: root
+
+sd_plugin_agent_config_path: /etc/sd-agent/config.cfg
+
+sd_plugin_sd_repo_uri: https://github.com/serverdensity/sd-agent-plugins.git
+sd_plugin_sd_plugins_repo_dir: "{{ sd_plugin_sd_core_dir_path }}/sd-agent-plugins"
+sd_plugin_sd_plugins_repo_version: HEAD
+sd_plugin_sd_plugins_repo_remote: origin
+sd_plugin_sd_plugins_repo_update: yes
+sd_plugin_sd_plugins_repo_depth: 1
+
+...

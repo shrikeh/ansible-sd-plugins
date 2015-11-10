@@ -1,0 +1,16 @@
+---
+- hosts: local
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Add the test server details to the test group
+      add_host:
+        name: "{{ lookup('env', 'ANSIBLE_TEST_HOSTNAME') }}"
+        ansible_connection: "{{ lookup('env', 'ANSIBLE_TEST_CONNECTION') }}"
+        group: test
+
+- hosts: test
+  roles:
+    - { role: '../../' }
+
+...

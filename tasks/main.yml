@@ -1,0 +1,35 @@
+---
+- name: Ensure the SD folder exists
+  file:
+    path: "{{ sd_plugin_sd_core_dir_path }}"
+    mode: "{{ sd_plugin_sd_core_dir_mode }}"
+    owner: "{{ sd_plugin_sd_core_dir_owner }}"
+    group: "{{ sd_plugin_sd_core_dir_group }}"
+    state: directory
+
+- name: Create the SD plugins folder
+  file:
+    path: "{{ sd_plugin_sd_plugins_dir_path }}"
+    mode: "{{ sd_plugin_sd_plugins_dir_mode }}"
+    owner: "{{ sd_plugin_sd_plugins_dir_owner }}"
+    group: "{{ sd_plugin_sd_plugins_dir_group }}"
+    state: directory
+
+- name: Clone the SD plugin repo
+  git:
+    repo: "{{ sd_plugin_sd_repo_uri }}"
+    dest: "{{ sd_plugin_sd_plugins_repo_dir }}"
+    version: "{{ sd_plugin_sd_plugins_repo_version }}"
+    remote: "{{ sd_plugin_sd_plugins_repo_remote }}"
+    update: "{{ sd_plugin_sd_plugins_repo_update }}"
+    depth: "{{ sd_plugin_sd_plugins_repo_depth }}"
+    clone: yes
+
+- name: Ensure the plugin directory is in the config
+  lineinfile:
+    state: present
+    regexp: '^(.?)plugin_directory:(.*)$'
+    line: "plugin_directory: {{ sd_plugin_sd_plugins_dir_path }}"
+    dest: "{{ sd_plugin_agent_config_path }}"
+
+...
