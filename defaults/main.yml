@@ -1,13 +1,16 @@
 ---
+sd_plugin_sd_agent_user: sd-agent
+sd_plugin_sd_agent_group: sd-agent
+
 sd_plugin_sd_core_dir_path: /usr/bin/sd-agent
 sd_plugin_sd_core_dir_mode: '0750'
 sd_plugin_sd_core_dir_owner: root
-sd_plugin_sd_core_dir_group: root
+sd_plugin_sd_core_dir_group: "{{ sd_plugin_sd_agent_group }}"
 
 sd_plugin_sd_plugins_dir_path: "{{ sd_plugin_sd_core_dir_path }}/plugins"
 sd_plugin_sd_plugins_dir_mode: '0750'
 sd_plugin_sd_plugins_dir_owner: root
-sd_plugin_sd_plugins_dir_group: root
+sd_plugin_sd_plugins_dir_group: "{{ sd_plugin_sd_agent_group }}"
 
 sd_plugin_agent_config_path: /etc/sd-agent/config.cfg
 
