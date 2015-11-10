@@ -11,6 +11,8 @@ sd_plugin_sd_plugins_dir_group: root
 
 sd_plugin_agent_config_path: /etc/sd-agent/config.cfg
 
+sd_plugin_clone_sd_repo: yes
+
 sd_plugin_sd_repo_uri: https://github.com/serverdensity/sd-agent-plugins.git
 sd_plugin_sd_plugins_repo_dir: "{{ sd_plugin_sd_core_dir_path }}/sd-agent-plugins"
 sd_plugin_sd_plugins_repo_version: HEAD
