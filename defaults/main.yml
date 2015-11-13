@@ -23,6 +23,9 @@ sd_plugin_sd_plugins_repo_remote: origin
 sd_plugin_sd_plugins_repo_update: yes
 sd_plugin_sd_plugins_repo_depth: 1
 
+sd_plugin_sd_plugin_file_owner: root
+sd_plugin_sd_plugin_file_group: "{{ sd_plugin_sd_agent_group }}"
+sd_plugin_sd_plugin_file_mode: '0640'
 
 sd_plugin_sd_agent_service_name: sd-agent
 ...
